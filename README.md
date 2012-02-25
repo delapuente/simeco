@@ -1,6 +1,10 @@
 # simeco
 
-pysub is a little **Python 2** library to manipulate [SubRip](http://es.wikipedia.org/wiki/SubRip) subtitle files. The main class of the library is the **SubtitleStream** class.
+simeco is a economic simulator for educational purposes. Current version let the user set a company and a population and it is possible to see how some variables such as unemployed population, worker salary, savings, expenses, product price, demand, stock or production vary along time.
+
+## NOTES
+
+Despite the core is commented in English, currently interface is just available in Spanish.
 
 ## Installing simeco
 
