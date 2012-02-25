@@ -4,21 +4,17 @@ pysub is a little **Python 2** library to manipulate [SubRip](http://es.wikipedi
 
 ## Installing simeco
 
-pysub is available in the [Python Package Index](http://pypi.python.org/pypi) so you can install it by issuing the following command on your computer:
-
-    # pip install pysub
-
-Otherwise, you can install from sources by typing:
-
-    # python setup.py install
+simeco does not require installation. 
 
 ## Running simeco
 
+Simply open **index.html** file with an updated webrowser such as [Chrome](www.google.es/chrome/) or [Firefox](www.mozilla.org/firefox/fx/).
+
 ## Documentation
 
-Documents for pysub are not exhaustive but they can be found under **docs/html** directory.
+All documentation is in the source files. If I find a good document generator for Javascript, I promise to include the API documentation. 
 
-You can find more info in the [pysub project's homepage](http://unoyunodiez.wordpress.com/pysub/).
+You can find more info in the [simeco project's homepage](http://unoyunodiez.wordpress.com/proyectos/simeco/).
 
 ## Version history
 
