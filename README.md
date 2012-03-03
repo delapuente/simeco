@@ -10,6 +10,15 @@ Despite the core is commented in English, currently interface is just available 
 
 simeco does not require installation. 
 
+## Configuring simeco
+
+There are two configurable options in file `simeco/js/simeco.gui.js`:
+
+```javascript
+const LANGUAGE = 'en';          // Default language (currently only Spanish 'es' or English 'en' are available)
+const FAST_FORWARD_STEPS = 10;  // Number of steps when fast forwarding
+```
+
 ## Running simeco
 
 Simply open **index.html** file with an updated webrowser such as [Chrome](www.google.es/chrome/) or [Firefox](www.mozilla.org/firefox/fx/).
@@ -21,6 +30,11 @@ All documentation is in the source files. If I find a good document generator fo
 You can find more info in the [simeco project's homepage](http://unoyunodiez.wordpress.com/proyectos/simeco/).
 
 ## Version history
+
+### 20120303 (1.1.1)
+
+ * Translated to English
+ * Spanish 'es' and English 'en' langauages available
 
 ### 20120225 (1.1)
 

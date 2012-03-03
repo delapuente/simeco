@@ -15,8 +15,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 «Copyright 2012 Salvador de la Puente & Pablo Rabanal»
 */
 
-const LANGUAGE = 'en';
-const FAST_FORWARD_STEPS = 10;
+const LANGUAGE = 'en';          // Default language (currently only Spanish 'es' or English 'en' are available)
+const FAST_FORWARD_STEPS = 10;  // Number of steps when fast forwarding
 
 const LOAD_BUTTONS = {
     Ok: function() {
