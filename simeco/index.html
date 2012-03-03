@@ -1,120 +1,122 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SIMECO</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/jquery.jqplot.min.js"></script>
-	<script type="text/javascript" src="js/jqplot.highlighter.min.js"></script>
-	<script type="text/javascript" src="js/jqplot.cursor.min.js"></script>
-	<script type="text/javascript" src="js/jquery-ui.custom.min.js"></script>
-	<script type="text/javascript" src="js/simeco.core.js"></script>
-	<script type="text/javascript" src="js/simeco.gui.js"></script></script>
-	
-	<link rel="stylesheet" href="css/sunny/jquery-ui.custom.css" />
-	<link rel="stylesheet" href="css/jquery.jqplot.min.css" />
-	<link rel="stylesheet" href="css/simeco.css" />
+    <title>SIMECO</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="js/jqplot.highlighter.min.js"></script>
+    <script type="text/javascript" src="js/jqplot.cursor.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.tr.js"></script>
+    <script type="text/javascript" src="js/translation.js"></script>
+    <script type="text/javascript" src="js/simeco.core.js"></script>
+    <script type="text/javascript" src="js/simeco.gui.js"></script></script>
+    
+    <link rel="stylesheet" href="css/sunny/jquery-ui.custom.css" />
+    <link rel="stylesheet" href="css/jquery.jqplot.min.css" />
+    <link rel="stylesheet" href="css/simeco.css" />
 </head>
 <body>
-	<section id="config-section">
-		<section id="population-section">
-			<h2>Población:</h2>
-			<div>
-				<p>Número de personas: <input id="population-count-input" class="only-define" type="number" min="1" value="150" /></p>
-				<div class="error-area"></div>
-				<div id="population-count" class="only-define slide"></div>
-				<p>Ahorros: <input id="person-savings-input" type="number" min="1" value="1000" /></p>
-				<div class="error-area"></div>
-				<div id="person-savings" class="slide"></div>
-				<p>Gasto mensual: <input id="person-expenses-input" type="number" min="1" value="300" /></p>
-				<div class="error-area"></div>
-				<div id="person-expenses" class="slide"></div>
-				<button class="define" id="define-population">Definir población</button>
-				<button class="redefine" id="redefine-population">Redefinir población</button>
-			</div>
-		</section>
-		<section id="company-section">
-			<h2>Empresa:</h2>
-			<div>
-				<p>Número de empresarios iniciales: <input id="company-entrepreneurs-input" class="only-define" type="number" min="1" value="5" /></p>
-				<div class="error-area"></div>
-				<div id="company-entrepreneurs" class="only-define slide"></div>
-				<p>Número de empleados: <input id="company-size-input" class="only-define" type="number" min="1" value="100" /></p>
-				<div class="error-area"></div>
-				<div id="company-size" class="only-define slide"></div>
-				<p>Precio de los productos: <input id="company-product-price-input" type="number" min="1" value="20" /></p>
-				<div class="error-area"></div>
-				<div id="company-product-price" class="slide"></div>
-				<p>Productos en stock: <input id="company-stock-input" type="number" min="0" value="1000" /></p>
-				<div class="error-area"></div>
-				<div id="company-stock" class="slide"></div>
-				<p>Sueldo del trabajador: <input id="company-salary-input" type="number" min="1" value="1200" /></p>
-				<div class="error-area"></div>
-				<div id="company-salary" class="slide"></div>
-				<p>Productos por trabajador: <input id="company-units-by-worker-input" type="number" min="1" value="3" /></p>
-				<div class="error-area"></div>
-				<div id="company-units-by-worker" class="slide"></div>
-				<button class="define" id="define-company">Definir empresa</button>
-				<button class="redefine" id="redefine-company">Redefinir empresa</button>
-			</div>
-		</section>
-	</section>
-	<section id="chart-section">
-		<section id="chart-display-section">
-			<h2>Visualización:</h2>
-			<div id="chart"></div>
-		</section>
-		<section id="chart-control-section">
-			<button id="load-simulation">Cargar simulación</button>
-			<button id="save-simulation">Guardar simulación</button>
-			<span class="separator">|</span>
-			<button id="reset-simulation">Reiniciar simulación</button>
-			<button id="start-simulation">Iniciar simulación</button>
-			<button id="next-step">Próximo paso</button>
-			<button id="next-ten-steps">10 pasos más</button>
-			<span class="separator">|</span>
-			<button id="reset-zoom">Reiniciar zoom</button>
-		</section>
-		<section id="chart-options-section">
-			<h2>Series:</h2>
-			<div id="chart-options">
-				<div id="worker-chart-options">
-					<p><input type="checkbox" id="unemployed-serie" checked="checked" /><label for="unemployed-serie">Parados</label><span id="current-unemployed" class="current-data"></span></p>
-					<p><input type="checkbox" id="salary-serie" /><label for="salary-serie">Salario del trabajador</label><span id="current-salary" class="current-data"></span></p>
-					<p><input type="checkbox" id="money-serie" /><label for="money-serie">Ahorros</label><span id="current-money" class="current-data"></span></p>
-					<p><input type="checkbox" id="savings-serie" /><label for="savings-serie">Ahorro medio</label><span id="current-savings" class="current-data"></span></p>
-					<p><input type="checkbox" id="expenses-serie" /><label for="expenses-serie">Gasto medio</label><span id="current-expenses" class="current-data"></span></p>
-				</div>
-				<div id="company-chart-options">
-					<p><input type="checkbox" id="price-serie" /><label for="price-serie">Precio del producto</label><span id="current-price" class="current-data"></span></p>
-					<p><input type="checkbox" id="sold-serie" /><label for="sold-serie">Productos vendidos</label><span id="current-sold" class="current-data"></span></p>
-					<p><input type="checkbox" id="stock-serie" /><label for="stock-serie">Productos en stock</label><span id="current-stock" class="current-data"></span></p>
-					<p><input type="checkbox" id="production-serie" /><label for="production-serie">Producción de la empresa</label><span id="current-production" class="current-data"></span></p>
-				</div>
-			</div>
-		</section>
-	</section>
-	
-	<div id="simulation-precondition-errors" title="Error al iniciar la simulación">
-		<section  class="ui-state-error">
-			<ul>
-				<li id="precondition-populationDefined"><strong>La población no ha sido definida</strong>. Elija los valores para la población y haga clic en "Definir Población".</li>
-				<li id="precondition-companiesDefined"><strong>No hay compañías definidas</strong>. Elija los valores para la compañía y haga clic en "Definir Compañía".</li>
-				<li id="precondition-enoughEntrepreneurs"><strong>Demasiadas empresas</strong>. No hay suficientes personas para hacerse cargo de todas las empresas.</li>
-				<li id="precondition-enoughPositions"><strong>Demasiados puestos de trabajo</strong>. Los puestos de trabajo no pueden exceder el tamaño de la población.</li>
-			</ul>
-		</section>
-	</div>
-	
-	<div id="export" title="Exportar simulación">
-		<p>Guarda el contenido del área de texto:</p>
-		<textarea></textarea>
-	</div>
-	
-	<div id="import" title="Importar simulación">
-		<p>Pega en el área de texto la configuración de la simulación:</p>
-		<textarea></textarea>
-	</div>
+    <section id="config-section">
+        <section id="population-section">
+            <h2 id="population-header">Población</h2>
+            <div>
+                <p><label for="population-count-input">Número de personas</label>: <input id="population-count-input" class="only-define" type="number" min="1" value="150" /></p>
+                <div class="error-area"></div>
+                <div id="population-count" class="only-define slide"></div>
+                <p><label for="person-savings-input">Ahorros</label>: <input id="person-savings-input" type="number" min="1" value="1000" /></p>
+                <div class="error-area"></div>
+                <div id="person-savings" class="slide"></div>
+                <p><label for="person-expenses-input">Gasto mensual</label>: <input id="person-expenses-input" type="number" min="1" value="300" /></p>
+                <div class="error-area"></div>
+                <div id="person-expenses" class="slide"></div>
+                <button class="define" id="define-population">Definir población</button>
+                <button class="redefine" id="redefine-population">Redefinir población</button>
+            </div>
+        </section>
+        <section id="company-section">
+            <h2 id="company-header">Empresa</h2>
+            <div>
+                <p><label for="company-entrepreneurs-input">Número de empresarios iniciales</label>: <input id="company-entrepreneurs-input" class="only-define" type="number" min="1" value="5" /></p>
+                <div class="error-area"></div>
+                <div id="company-entrepreneurs" class="only-define slide"></div>
+                <p><label for="company-size-input">Número de empleados</label>: <input id="company-size-input" class="only-define" type="number" min="1" value="100" /></p>
+                <div class="error-area"></div>
+                <div id="company-size" class="only-define slide"></div>
+                <p><label for="company-product-price-input">Precio de los productos</label>: <input id="company-product-price-input" type="number" min="1" value="20" /></p>
+                <div class="error-area"></div>
+                <div id="company-product-price" class="slide"></div>
+                <p><label for="company-stock-input">Productos en stock</label>: <input id="company-stock-input" type="number" min="0" value="1000" /></p>
+                <div class="error-area"></div>
+                <div id="company-stock" class="slide"></div>
+                <p><label for="company-salary-input">Sueldo del trabajador</label>: <input id="company-salary-input" type="number" min="1" value="1200" /></p>
+                <div class="error-area"></div>
+                <div id="company-salary" class="slide"></div>
+                <p><label for="company-units-by-worker-input">Productos por trabajador</label>: <input id="company-units-by-worker-input" type="number" min="1" value="3" /></p>
+                <div class="error-area"></div>
+                <div id="company-units-by-worker" class="slide"></div>
+                <button class="define" id="define-company">Definir empresa</button>
+                <button class="redefine" id="redefine-company">Redefinir empresa</button>
+            </div>
+        </section>
+    </section>
+    <section id="chart-section">
+        <section id="chart-display-section">
+            <h2 id="visualization-header">Visualización:</h2>
+            <div id="chart"></div>
+        </section>
+        <section id="chart-control-section">
+            <button id="load-simulation">Cargar simulación</button>
+            <button id="save-simulation">Guardar simulación</button>
+            <span class="separator">|</span>
+            <button id="reset-simulation">Reiniciar simulación</button>
+            <button id="start-simulation">Iniciar simulación</button>
+            <button id="next-step">Próximo paso</button>
+            <button id="next-ten-steps">10 pasos más</button>
+            <span class="separator">|</span>
+            <button id="reset-zoom">Reiniciar zoom</button>
+        </section>
+        <section id="chart-options-section">
+            <h2 id="series-header">Series</h2>
+            <div id="chart-options">
+                <div id="worker-chart-options">
+                    <p><input type="checkbox" id="unemployed-serie" checked="checked" /><label for="unemployed-serie">Parados</label><span id="current-unemployed" class="current-data"></span></p>
+                    <p><input type="checkbox" id="salary-serie" /><label for="salary-serie">Salario del trabajador</label><span id="current-salary" class="current-data"></span></p>
+                    <p><input type="checkbox" id="money-serie" /><label for="money-serie">Ahorros</label><span id="current-money" class="current-data"></span></p>
+                    <p><input type="checkbox" id="savings-serie" /><label for="savings-serie">Ahorro medio</label><span id="current-savings" class="current-data"></span></p>
+                    <p><input type="checkbox" id="expenses-serie" /><label for="expenses-serie">Gasto medio</label><span id="current-expenses" class="current-data"></span></p>
+                </div>
+                <div id="company-chart-options">
+                    <p><input type="checkbox" id="price-serie" /><label for="price-serie">Precio del producto</label><span id="current-price" class="current-data"></span></p>
+                    <p><input type="checkbox" id="sold-serie" /><label for="sold-serie">Productos vendidos</label><span id="current-sold" class="current-data"></span></p>
+                    <p><input type="checkbox" id="stock-serie" /><label for="stock-serie">Productos en stock</label><span id="current-stock" class="current-data"></span></p>
+                    <p><input type="checkbox" id="production-serie" /><label for="production-serie">Producción de la empresa</label><span id="current-production" class="current-data"></span></p>
+                </div>
+            </div>
+        </section>
+    </section>
+    
+    <div id="simulation-precondition-errors" title="Error al iniciar la simulación">
+        <section  class="ui-state-error">
+            <ul>
+                <li id="precondition-populationDefined"><strong>La población no ha sido definida</strong>. <span>Elija los valores para la población y haga clic en "Definir Población".</span></li>
+                <li id="precondition-companiesDefined"><strong>No hay compañías definidas</strong>. <span>Elija los valores para la compañía y haga clic en "Definir Compañía".</span></li>
+                <li id="precondition-enoughEntrepreneurs"><strong>Demasiadas empresas</strong>. <span>No hay suficientes personas para hacerse cargo de todas las empresas.</span></li>
+                <li id="precondition-enoughPositions"><strong>Demasiados puestos de trabajo</strong>. <span>Los puestos de trabajo no pueden exceder el tamaño de la población.</span></li>
+            </ul>
+        </section>
+    </div>
+    
+    <div id="export" title="Exportar simulación">
+        <p>Guarda el contenido del área de texto</p>
+        <textarea></textarea>
+    </div>
+    
+    <div id="import" title="Importar simulación">
+        <p>Pega en el área de texto la configuración de la simulación</p>
+        <textarea></textarea>
+    </div>
 </body>
 </html>

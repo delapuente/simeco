@@ -1,5 +1,5 @@
 * { font-family: arial; }
-p , td, th{ font-size: 14px; }
+p , td, th{ font-size: 12px; }
 
 #config-section { width:300px; float:left; }
 #config-section input { float:right; width:10ex; text-align:right;}
@@ -13,8 +13,8 @@ p , td, th{ font-size: 14px; }
 .slide .ui-slider-handle { height:13px; width:13px; }
 .ui-state-error { font-size:12px; margin:0.5em 0; padding:0.5em; }
 .current-data {
-	text-align:right;
-	float:right;
-	margin-left:2em;
-	font-weight:bold;
+    text-align:right;
+    float:right;
+    margin-left:2em;
+    font-weight:bold;
 }
