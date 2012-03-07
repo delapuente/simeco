@@ -27,7 +27,7 @@ Simply open **index.html** file with an updated webrowser such as [Chrome](www.g
 
 All documentation is in the source files. If I find a good document generator for Javascript, I promise to include the API documentation. 
 
-You can find more info in the [simeco project's homepage](http://unoyunodiez.wordpress.com/proyectos/simeco/).
+You can find more info in the [simeco project's homepage](http://unoyunodiez.com/proyectos/simeco/).
 
 ## Version history
 
